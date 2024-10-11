@@ -51,3 +51,187 @@
      menuBtn.addEventListener('click', () => {
 	  mobileMenu.classList.toggle('hidden');
      });
+
+
+
+     document.querySelectorAll('.accordion-header').forEach(header => {
+	header.addEventListener('click', () => {
+	    // Toggle active header style
+	    header.querySelector('.header-text').classList.toggle('active-header');
+	    
+	    // Toggle the corresponding content
+	    const content = header.nextElementSibling;
+	    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+
+	    // Change the text of the header
+	    const span = header.querySelector('.header-text');
+	    if (span.textContent.startsWith('+')) {
+		 span.textContent = span.textContent.replace('+', '-');
+	    } else {
+		 span.textContent = span.textContent.replace('-', '+');
+	    }
+	});
+   });
+
+
+
+
+
+   document.addEventListener('DOMContentLoaded', function () {
+	const observerOptions = {
+	  root: null, // Use viewport as root
+	  threshold: 0.1, // Trigger when 10% of the element is visible
+	};
+   
+	const observer = new IntersectionObserver((entries, observer) => {
+	  entries.forEach(entry => {
+	    if (entry.isIntersecting) {
+	      if (entry.target.classList.contains('left-slide')) {
+		 entry.target.classList.add('animate-slide-in-left');
+	      } else if (entry.target.classList.contains('right-slide')) {
+		 entry.target.classList.add('animate-slide-in-right');
+	      }
+	      // Stop observing after animation triggers
+	      observer.unobserve(entry.target);
+	    }
+	  });
+	}, observerOptions);
+   
+	// Selecting elements to observe
+	const slideElements = document.querySelectorAll('.left-slide, .right-slide');
+	slideElements.forEach(element => {
+	  observer.observe(element);
+	});
+     })
+
+
+     const cards = document.querySelectorAll('[data-animate]');
+    
+     const observer = new IntersectionObserver(entries => {
+	  entries.forEach(entry => {
+	      if (entry.isIntersecting) {
+		   entry.target.style.opacity = 1;
+		   entry.target.style.transform = 'translateY(0)';
+		   observer.unobserve(entry.target);
+	      }
+	  });
+     });
+ 
+     cards.forEach(card => {
+	  observer.observe(card);
+     });
+
+
+     
+
+     document.addEventListener("DOMContentLoaded", function() {
+	const achievementItems = document.querySelectorAll('.achievement-item');
+   
+	// Create an intersection observer
+	const observer = new IntersectionObserver((entries) => {
+	    entries.forEach(entry => {
+		 if (entry.isIntersecting) {
+		     const index = Array.from(achievementItems).indexOf(entry.target);
+		     const delay = index * 100; // 100ms delay between items
+   
+		     entry.target.style.animationDelay = `${delay}ms`;
+   
+		     // Add the classes based on the index (even: left, odd: right)
+		     if (index % 2 === 0) {
+			  entry.target.classList.add('slide-left');
+		     } else {
+			  entry.target.classList.add('slide-right');
+		     }
+   
+		     // Unobserve the target after adding classes to avoid repeated animations
+		     observer.unobserve(entry.target);
+		 }
+	    });
+	});
+   
+	// Observe each achievement item
+	achievementItems.forEach(item => {
+	    observer.observe(item);
+	});
+   });
+   
+   
+
+
+
+   document.addEventListener("DOMContentLoaded", function () {
+	const observer = new IntersectionObserver((entries, observer) => {
+	  entries.forEach(entry => {
+	    if (entry.isIntersecting) {
+	      entry.target.classList.add('in-view');
+	      observer.unobserve(entry.target); // Stop observing once in view
+	    }
+	  });
+	}, { threshold: 0.1 });
+     
+	// Select all elements with class 'animated'
+	const animatedElements = document.querySelectorAll('.animated, .image-container');
+     
+	// Observe each animated element
+	animatedElements.forEach(element => {
+	  observer.observe(element);
+	});
+     });
+     
+
+
+
+     document.addEventListener("DOMContentLoaded", function () {
+	const newsItems = document.querySelectorAll('.news-item');
+   
+	const observerOptions = {
+	    root: null, // Use the viewport as the root
+	    rootMargin: '0px',
+	    threshold: 0.1 // Trigger when 10% of the item is visible
+	};
+   
+	const observerCallback = (entries, observer) => {
+	    entries.forEach(entry => {
+		 if (entry.isIntersecting) {
+		     entry.target.classList.add('visible'); // Add visible class when intersecting
+		     observer.unobserve(entry.target); // Stop observing once animated
+		 }
+	    });
+	};
+   
+	const observer = new IntersectionObserver(observerCallback, observerOptions);
+   
+	newsItems.forEach(item => {
+	    observer.observe(item); // Start observing each news item
+	});
+   });
+
+   
+
+
+
+
+
+   document.addEventListener("DOMContentLoaded", () => {
+	const cards = document.querySelectorAll('.card[data-animate]');
+	
+	const options = {
+	  root: null, // Use the viewport as the root
+	  rootMargin: '0px',
+	  threshold: 0.1 // Trigger when 10% of the card is visible
+	};
+     
+	const observer = new IntersectionObserver((entries, observer) => {
+	  entries.forEach(entry => {
+	    if (entry.isIntersecting) {
+	      entry.target.classList.add('active'); // Add the active class to trigger the animation
+	      observer.unobserve(entry.target); // Stop observing the element after it is animated
+	    }
+	  });
+	}, options);
+     
+	cards.forEach(card => {
+	  observer.observe(card); // Observe each card for scroll events
+	});
+     });
+     
