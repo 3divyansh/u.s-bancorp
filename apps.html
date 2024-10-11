@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Bancorp - Google Play</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <script>
+        let installCount = 0;
+
+        function installApp() {
+            const installButton = document.getElementById('install-button');
+            const progressBarContainer = document.getElementById('progress-bar-container');
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+
+            // Show the progress bar container when installation starts
+            progressBarContainer.style.display = 'block';
+            installButton.disabled = true; // Disable the button to prevent multiple clicks
+
+            const installInterval = setInterval(() => {
+                if (installCount < 100) {
+                    installCount += 5; // Increment installation progress
+                    progressBar.style.width = installCount + '%'; // Update progress bar width
+                    progressText.textContent = installCount + '%'; // Update progress text
+                    console.log(`Installing... ${installCount}%`);
+                } else {
+                    clearInterval(installInterval);
+                    console.log("Install successfully!");
+                    alert("Install successfully!"); // Show a success message
+                    installButton.disabled = false; // Re-enable button after installation
+                    installCount = 0; // Reset count for next installation
+                    progressBar.style.width = '0%'; // Reset progress bar
+                    progressText.textContent = '0%'; // Reset progress text
+                    progressBarContainer.style.display = 'none'; // Hide progress bar container after installation
+                }
+            }, 1000); // Simulate installation delay
+        }
+
+        function shareApp() {
+            // Example share options (this won't open a real share dialog)
+            const shareOptions = `
+                Share on:
+                1. Facebook
+                2. Twitter
+                3. WhatsApp
+                4. Email
+            `;
+            alert(shareOptions); // Show share options
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 font-roboto">
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <img alt="Google Play Logo" class="h-10" height="40" src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" width="100" />
+                <nav class="ml-10 space-x-4">
+                    <a class="text-gray-600 hover:text-gray-900" href="#">Games</a>
+                    <a class="text-gray-600 hover:text-gray-900" href="#">Apps</a>
+                    <a class="text-gray-600 hover:text-gray-900" href="#">Movies</a>
+                    <a class="text-gray-600 hover:text-gray-900" href="#">Books</a>
+                    <a class="text-gray-600 hover:text-gray-900" href="#">Kids</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="container mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row">
+            <div class="w-full md:w-2/3 mb-6 md:mb-0">
+                <h1 class="text-4xl font-bold text-gray-900"> Bancorp</h1>
+                <p class="text-lg text-blue-600"> Bancorp</p>
+                <div class="flex items-center mt-2">
+                    <span class="text-gray-600">100+</span>
+                    <span class="mx-2 text-gray-600">|</span>
+                    <span class="text-gray-600">Rated for 3+</span>
+                </div>
+                <button id="install-button" class="mt-4 bg-green-600 text-white px-6 py-2 rounded-md" onclick="installApp()">
+                    Install
+                </button>
+                <div id="progress-bar-container" class="mt-4 hidden relative">
+                    <div class="h-2 bg-gray-200 rounded">
+                        <div id="progress-bar" class="h-full bg-green-600 rounded transition-all duration-300" style="width: 0%;"></div>
+                    </div>
+                    <span id="progress-text" class="absolute left-1/2 transform -translate-x-1/2 top-0 text-xs text-gray-700">0%</span>
+                </div>
+                <div class="flex items-center mt-4 space-x-4">
+                    <a class="text-green-600 cursor-pointer" onclick="shareApp()">
+                        <i class="fas fa-share"></i> Share
+                    </a>
+                    <a class="text-green-600" href="#">
+                        <i class="fas fa-bookmark"></i> Add to wishlist
+                    </a>
+                </div>
+                <p class="mt-4 text-gray-600">This app is available for your device</p>
+                <div class="mt-6 flex overflow-x-auto space-x-4">
+                    <img alt="Stock market chart on a mobile screen" class="h-48" height="400" src="https://storage.googleapis.com/a1aa/image/Vwvdg0RUSXY8A1PE2liJlV2ijgPxf7P1Sbw3EgMrmerxN1lTA.jpg" width="200" />
+                    <img alt="Stock market trading interface on a mobile screen" class="h-48" height="400" src="https://storage.googleapis.com/a1aa/image/KzcJ7pRt51qjPpnh2oTEp6HSXQ9aiJBvi9HtvgcOvYjcTd5E.jpg" width="200" />
+                    <img alt="User profile in a stock market app" class="h-48" height="400" src="https://storage.googleapis.com/a1aa/image/rcqK2fRKrqQVdquqRQehbWL83QNppxFhFlue1DgK2XQobqLnA.jpg" width="200" />
+                    <img alt="Stock market app dashboard" class="h-48" height="400" src="https://storage.googleapis.com/a1aa/image/gvZbB1sLvw4BEN77VDfEBesq1d5ni1uqWUpgGcGmVR03N1lTA.jpg" width="200" />
+                    <img alt="Stock market app settings screen" class="h-48" height="400" src="https://storage.googleapis.com/a1aa/image/FdHSxnfd45WYUaafxaHGwaEermHSHkf2tkxResxATYvuupucC.jpg" width="200" />
+                </div>
+                <div class="mt-8">
+                    <h2 class="text-2xl font-bold text-gray-900">About this app</h2>
+                    <p class="mt-2 text-gray-600">Join our Trading platform today.</p>
+                    <p class="mt-2 text-gray-600">
+                         Bancorp is an influential London- UK based company that has been providing its investors with the best auto trading service in Bancorp currency trading since 2002. Now, to provide its services to the Indian investors in India, under the leadership of Satish Patel, and merged with SEBI registered broker FX MARKETPLACE (Registration No. INE261329135), and is providing the best auto trading service with low fees. From now on, all traders in India will be able to avail of auto trading services in the Bancorp currency market from
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

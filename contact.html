@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Contact Form</title>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent default form submission
+            // Show a message
+            alert("We will connect with you in a few moments");
+            // Optionally, you can clear the form after submission
+            document.getElementById("contact-form").reset();
+        }
+    </script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-white">
+    <div class="w-full max-w-xl p-6 md:p-10 lg:p-12 xl:p-16">
+        <h1 class="text-3xl md:text-4xl font-bold text-center text-black">Love to hear from you,</h1>
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-700">Get in touch</h2>
+        <form id="contact-form" class="mt-8 space-y-6" onsubmit="handleSubmit(event)">
+            <div class="flex flex-col md:flex-row md:space-x-4">
+                <div class="w-full md:w-1/2 mb-4 md:mb-0">
+                    <label for="name" class="block text-sm font-medium text-gray-500">Your name <span class="text-red-500">*</span></label>
+                    <input type="text" id="name" name="name" class="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <label for="email" class="block text-sm font-medium text-gray-500">Your email <span class="text-red-500">*</span></label>
+                    <input type="email" id="email" name="email" class="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
+                </div>
+            </div>
+            <div>
+                <label for="subject" class="block text-sm font-medium text-gray-500">Your subject <span class="text-red-500">*</span></label>
+                <input type="text" id="subject" name="subject" class="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
+            </div>
+            <div>
+                <label for="message" class="block text-sm font-medium text-gray-500">Your message <span class="text-red-500">*</span></label>
+                <textarea id="message" name="message" rows="4" class="block w-full mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required></textarea>
+            </div>
+            <div class="flex justify-center">
+                <button type="submit" class="px-6 py-2 text-white bg-blue-800 rounded-md hover:bg-blue-600 transition duration-200">Send now</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

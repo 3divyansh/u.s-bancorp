@@ -6,43 +6,166 @@
    
   
       // Show form function
-      function showForm(formType) {
+//       function showForm(formType) {
+// 	const loginForm = document.getElementById('loginForm');
+// 	const registerForm = document.getElementById('registerForm');
+// 	const overlay = document.getElementById('overlay');
+
+// 	loginForm.classList.add('hidden');
+// 	registerForm.classList.add('hidden');
+// 	overlay.classList.remove('hidden');
+	
+// 	if (formType === 'login') {
+// 	    loginForm.classList.remove('hidden');
+// 	} else {
+// 	    registerForm.classList.remove('hidden');
+// 	}
+//    }
+
+//    // Close form function
+//    function closeForm() {
+// 	document.getElementById('loginForm').classList.add('hidden');
+// 	document.getElementById('registerForm').classList.add('hidden');
+// 	document.getElementById('overlay').classList.add('hidden');
+//    }
+
+//    // Submit Login
+//    function submitLogin() {
+// 	const username = document.getElementById('loginUsername').value;
+// 	const password = document.getElementById('loginPassword').value;
+// 	console.log('Login:', { username, password });
+//    }
+
+//    // Submit Register
+//    function submitRegister() {
+// 	const fullName = document.getElementById('registerName').value;
+// 	const email = document.getElementById('registerEmail').value;
+// 	const password = document.getElementById('registerPassword').value;
+// 	console.log('Register:', { fullName, email, password });
+//    }
+
+//    function showForm(formType) {
+// 	// Clear the input fields
+// 	if (formType === 'login') {
+// 	    document.getElementById('loginUsername').value = '';
+// 	    document.getElementById('loginPassword').value = '';
+// 	    document.getElementById('loginForm').classList.remove('hidden');
+// 	    document.getElementById('overlay').classList.remove('hidden');
+// 	} else if (formType === 'register') {
+// 	    document.getElementById('registerName').value = '';
+// 	    document.getElementById('registerEmail').value = '';
+// 	    document.getElementById('registerPassword').value = '';
+// 	    document.getElementById('registerForm').classList.remove('hidden');
+// 	    document.getElementById('overlay').classList.remove('hidden');
+// 	}
+//    }
+   
+//    function closeForm() {
+// 	document.getElementById('loginForm').classList.add('hidden');
+// 	document.getElementById('registerForm').classList.add('hidden');
+// 	document.getElementById('overlay').classList.add('hidden');
+//    }
+   
+
+
+
+
+
+
+
+function showForm(formType) {
+	// Clear input fields before showing the form
+	if (formType === 'login') {
+	    document.getElementById('loginUsername').value = '';
+	    document.getElementById('loginPassword').value = '';
+	} else if (formType === 'register') {
+	    document.getElementById('registerName').value = '';
+	    document.getElementById('registerEmail').value = '';
+	    document.getElementById('registerPassword').value = '';
+	}
+   
+	// Hide both forms initially
 	const loginForm = document.getElementById('loginForm');
 	const registerForm = document.getElementById('registerForm');
 	const overlay = document.getElementById('overlay');
-
+   
 	loginForm.classList.add('hidden');
 	registerForm.classList.add('hidden');
 	overlay.classList.remove('hidden');
-	
+   
+	// Show the selected form
 	if (formType === 'login') {
 	    loginForm.classList.remove('hidden');
 	} else {
 	    registerForm.classList.remove('hidden');
 	}
    }
-
+   
    // Close form function
    function closeForm() {
-	document.getElementById('loginForm').classList.add('hidden');
-	document.getElementById('registerForm').classList.add('hidden');
-	document.getElementById('overlay').classList.add('hidden');
+	const loginForm = document.getElementById('loginForm');
+	const registerForm = document.getElementById('registerForm');
+	const overlay = document.getElementById('overlay');
+   
+	loginForm.classList.add('hidden');
+	registerForm.classList.add('hidden');
+	overlay.classList.add('hidden');
    }
-
+   
    // Submit Login
    function submitLogin() {
 	const username = document.getElementById('loginUsername').value;
 	const password = document.getElementById('loginPassword').value;
 	console.log('Login:', { username, password });
+   
+	// Optionally clear inputs after submission
+	document.getElementById('loginUsername').value = '';
+	document.getElementById('loginPassword').value = '';
    }
-
+   
    // Submit Register
    function submitRegister() {
 	const fullName = document.getElementById('registerName').value;
 	const email = document.getElementById('registerEmail').value;
 	const password = document.getElementById('registerPassword').value;
 	console.log('Register:', { fullName, email, password });
+   
+	// Optionally clear inputs after submission
+	document.getElementById('registerName').value = '';
+	document.getElementById('registerEmail').value = '';
+	document.getElementById('registerPassword').value = '';
    }
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//--------------------------------------------------------
+
+
 
      const menuBtn = document.getElementById('menu-btn');
      const navMenu = document.getElementById('nav-menu');
@@ -52,6 +175,8 @@
 	  mobileMenu.classList.toggle('hidden');
      });
 
+
+     //========================================================
 
 
      document.querySelectorAll('.accordion-header').forEach(header => {
@@ -73,7 +198,7 @@
 	});
    });
 
-
+//=============================
 
 
 
@@ -235,3 +360,48 @@
 	});
      });
      
+
+
+
+
+
+
+
+
+
+
+
+     function subscribe() {
+	const emailInput = document.querySelector('.input-email');
+	const messageContainer = document.getElementById('message-container');
+	const messageContainers = document.getElementById('message-containers');
+
+	if (emailInput.value) {
+	    // Show success message
+	    messageContainer.textContent = "Mail sent successfully!";
+	    messageContainer.classList.remove('hidden');
+
+	    // Log to console
+	    console.log("Mail sent successfully to:", emailInput.value);
+
+	    // Clear the input field
+	    emailInput.value = '';
+
+	    // Hide message after 3 seconds
+	    setTimeout(() => {
+		 messageContainer.classList.add('hidden');
+	    }, 3000);
+	} else {
+	    // Show error message if the email is empty
+	    messageContainers.textContent = "Please enter a valid email address.";
+	    messageContainers.classList.remove('hidden');
+
+	    // Clear the input field
+	    emailInput.value = '';
+
+	    // Hide message after 3 seconds
+	    setTimeout(() => {
+		 messageContainers.classList.add('hidden');
+	    }, 3000);
+	}
+   }
