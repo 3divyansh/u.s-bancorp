@@ -19,7 +19,7 @@
  </head>
  <body>
 	
-	<section class=" bgc bg-cover bg-center overflow-hidden "   >
+	<section class="bg-cover bg-center overflow-hidden "   >
 	<div class="bg-slate-900 bg-opacity-90 h-full-screen">
 		<header class="bg-black bg-opacity-50 text-white py-4 relative z-10 animate-blow">
 			<div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
@@ -174,31 +174,37 @@
 				  </div>
 				</div>
 			     
-				<p class="left-slide hidden-slide text-2xl md:text-3xl mt-4 text-red-500 font-extrabold shadow-md">
+				<p class="left-slide hidden-slide text-4xl md:text-3xl mt-4 text-red-600 font-extrabold shadow-md">
 				  INVEST BANCORP ANYTIME AT ANYWHERE
 				</p>
-				<p class="right-slide hidden-slide text-xl md:text-2xl mt-2 text-red-500 font-extrabold shadow-md">
+				<p class="right-slide hidden-slide text-2xl md:text-2xl mt-2 text-red-600 font-extrabold shadow-md">
 				  Since 2008
 				</p>
-			     
-				<!-- Buttons with animation -->
+
 				<div class="mt-8 space-x-4">
-				  <div class="relative group inline-block left-slide hidden-slide">
-				    <button class="px-6 py-2 border border-red-500 text-red-500 hover:bg-blue-800 hover:text-white transition duration-300 ease-in-out text-4xl font-extrabold transform hover:rotate-y-180">
-				      Account open
-				    </button>
-				    <div class="absolute inset-0 border-t-4 border-transparent group-hover:border-red-500 animated-border"></div>
-				  </div>
-				  
-				  <div class="relative group inline-block right-slide hidden-slide">
-				    <button class="px-6 py-2 border border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition duration-300 ease-in-out text-4xl font-extrabold transform hover:rotate-y-180">
-				      <a href="https://www.usbank.com/online-mobile-banking/mobile-banking.html#gettheapp" class="block">
-					 DOWNLOAD APP
-				      </a>
-				    </button>
-				    <div class="absolute inset-0 border-t-4 border-transparent group-hover:border-red-500 animated-border"></div>
-				  </div>
-				</div>
+					<div class="relative group inline-block left-slide hidden-slide">
+					  <button 
+					    class="button-style" 
+					    style="padding: 0.5rem 1.5rem; border: 2px solid transparent; color: red; background-color: #0d223f; text-transform: uppercase; font-size: 1.5rem; position: relative; overflow: hidden; transition: background-color 0.3s ease, color 0.3s ease;" 
+					    onmouseover="this.style.color='white'; this.style.backgroundColor='rgba(255, 0, 0, 0.8)';" 
+					    onmouseout="this.style.color='red'; this.style.backgroundColor='#0d223f';">
+					    Account open
+					  </button>
+					  <div class="absolute inset-0 border-t-4 border-transparent group-hover:border-red-500 animated-border"></div>
+					</div>
+				     
+					<div class="relative group inline-block right-slide hidden-slide">
+					  <button 
+					    class="button-style" 
+					    style="padding: 0.5rem 1.5rem; border: 2px solid transparent; color: red; background-color: #0d223f; text-transform: uppercase; font-size: 1.5rem; position: relative; overflow: hidden; transition: background-color 0.3s ease, color 0.3s ease;" 
+					    onmouseover="this.style.color='white'; this.style.backgroundColor='rgba(255, 0, 0, 0.8)';" 
+					    onmouseout="this.style.color='red'; this.style.backgroundColor='#0d223f';">
+					    <a href="https://www.usbank.com/online-mobile-banking/mobile-banking.html#gettheapp" style="color: inherit; text-decoration: none;">DOWNLOAD APP</a>
+					  </button>
+					  <div class="absolute inset-0 border-t-4 border-transparent group-hover:border-red-500 animated-border"></div>
+					</div>
+				     </div>
+				     
 			     </main>
 			     
 		   </div>
@@ -252,13 +258,16 @@
 	  <div class="mt-8 max-w-2xl mx-auto">
 	    <div class="flex items-start text-white left-slide hidden-slide">
 	      <span class="text-green-500 text-2xl mr-2">•</span>
-	      <p class="text-base leading-relaxed font-sans">
-		 U.S BANCORP is an influential London-United Kingdom based company that has been providing its investors with the best auto trading service in U.S Bancorp currency trading since 2002.
-		 <br><br>
-		 Now, to provide its services to the Indian investors in India, under the leadership of Satish Patel, and merged with SEBI registered broker FX MARKETPLACE (Registration No. INE261329135), and is providing the best auto trading service with low fees.
-		 <br>
-		 From now on, all traders in India will be able to avail of auto trading services in the U.S Bancorp currency market from their favorite SEBI-registered broker. So let’s start today and get profit with surety.
-	      </p>
+	      <p 
+	      style="font-size: 1.2rem; line-height: 1.6; font-family: 'Arial', sans-serif; color: #ffffff; margin: 0; padding: 0; max-width: 800px; text-align: justify; word-wrap: break-word;"
+	  >
+	      U.S BANCORP is an influential London-United Kingdom based company that has been providing its investors with the best auto trading service in U.S Bancorp currency trading since 2002.
+	      <br><br>
+	      Now, to provide its services to the Indian investors in India, under the leadership of Satish Patel, and merged with SEBI registered broker FX MARKETPLACE (Registration No. INE261329135), and is providing the best auto trading service with low fees.
+	      <br>
+	      From now on, all traders in India will be able to avail of auto trading services in the U.S Bancorp currency market from their favorite SEBI-registered broker. So let’s start today and get profit with surety.
+	  </p>
+	  
 	    </div>
 	  </div>
 	  <div class="fixed bottom-10 right-10 flex items-center gap-4 right-slide hidden-slide">
@@ -269,7 +278,7 @@
 	</div>
      </section>
 
-     
+
      
      <section class="text-white" style="background-color: #0b1e3d; font-family: 'Arial', sans-serif;">
 	<div class="container mx-auto py-12">
