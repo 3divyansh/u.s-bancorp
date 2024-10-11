@@ -15,50 +15,66 @@
             clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
         }
   </style>
+  <link rel="stylesheet" href="styles.css">
  </head>
  <body>
 	
 	<section class=" bgc bg-cover bg-center overflow-hidden " style="background-image: url('https://showcasingtheglobe.com/wp-content/uploads/2023/11/12-Simple-Tips-To-Visiting-Switzerland-on-a-Budget.webp'); "  >
 	<div class="bg-slate-900 bg-opacity-90 h-full-screen">
-		<header class="bg-black bg-opacity-50 text-white py-2 relative z-10">
+		<header class="bg-black bg-opacity-50 text-white py-4 relative z-10 animate-blow">
 			<div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-			    <div class="flex items-center space-x-2 text-sm">
+			    <div class="flex items-center space-x-2 text-base"> <!-- Increased font size -->
 				 <i class="fas fa-envelope text-lime-600"></i>
-				 <span class="text-xs cursor-pointer">usbankcorp@gmail.com</span>
+				 <span class="text-sm cursor-pointer">usbankcorp@gmail.com</span> <!-- Adjusted font size -->
 			    </div>
-		   
-			    <div class="flex items-center space-x-4 mt-2 md:mt-0">
+			    
+			    <div class="flex items-center space-x-6 mt-2 md:mt-0 z-20"> <!-- Spacing & font size -->
 				 <!-- Login -->
-				 <span class="text-xs cursor-pointer" onclick="showForm('login')">
+				 <span class="text-sm cursor-pointer hover:text-lime-400 transition duration-300" onclick="showForm('login')">
 				     <i class="fas fa-user text-lime-600"></i> Login
 				 </span>
 				 <!-- Registration -->
-				 <span class="text-xs cursor-pointer" onclick="showForm('register')">
+				 <span class="text-sm cursor-pointer hover:text-lime-400 transition duration-300" onclick="showForm('register')">
 				     <i class="fas fa-sync-alt text-lime-600"></i> Registration
 				 </span>
 			    </div>
 			</div>
-		   
-			<!-- Login Form -->
-			<div id="loginForm" class="hidden mt-4 p-4 border rounded-md">
-			    <h2 class="text-lg font-bold mb-2">Login</h2>
-			    <input type="text" class="border p-2 w-full mb-2" placeholder="Username" />
-			    <input type="password" class="border p-2 w-full mb-2" placeholder="Password" />
-			    <button class="bg-lime-600 text-white px-4 py-2 mt-2">Login</button>
-			</div>
-		   
-			<!-- Registration Form -->
-			<div id="registerForm" class="hidden mt-4 p-4 border rounded-md">
-			    <h2 class="text-lg font-bold mb-2">Register</h2>
-			    <input type="text" class="border p-2 w-full mb-2" placeholder="Full Name" />
-			    <input type="email" class="border p-2 w-full mb-2" placeholder="Email" />
-			    <input type="password" class="border p-2 w-full mb-2" placeholder="Password" />
-			    <button class="bg-lime-600 text-white px-4 py-2 mt-2">Register</button>
-			</div>
 		   </header>
+		   
+		   <!-- Overlay Background -->
+		   <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-10"></div>
+		   
+		   <!-- Login Form -->
+		   <div id="loginForm" class="hidden fixed inset-0 flex justify-center items-center z-20">
+			<div class="bg-white p-6 rounded-lg w-full max-w-md relative">
+			    <!-- Close Button -->
+			    <button class="absolute top-2 right-2 text-gray-600 hover:text-gray-800" onclick="closeForm()">
+				 <i class="fas fa-times"></i>
+			    </button>
+			    <h2 class="text-lg font-bold mb-4">Login</h2>
+			    <input type="text" id="loginUsername" class="border p-2 w-full mb-4" placeholder="Username" />
+			    <input type="password" id="loginPassword" class="border p-2 w-full mb-4" placeholder="Password" />
+			    <button class="bg-lime-600 text-white px-4 py-2 w-full" onclick="submitLogin()">Login</button>
+			</div>
+		   </div>
+		   
+		   <!-- Registration Form -->
+		   <div id="registerForm" class="hidden fixed inset-0 flex justify-center items-center z-20">
+			<div class="bg-white p-6 rounded-lg w-full max-w-md relative">
+			    <!-- Close Button -->
+			    <button class="absolute top-2 right-2 text-gray-600 hover:text-gray-800" onclick="closeForm()">
+				 <i class="fas fa-times"></i>
+			    </button>
+			    <h2 class="text-lg font-bold mb-4">Register</h2>
+			    <input type="text" id="registerName" class="border p-2 w-full mb-4" placeholder="Full Name" />
+			    <input type="email" id="registerEmail" class="border p-2 w-full mb-4" placeholder="Email" />
+			    <input type="password" id="registerPassword" class="border p-2 w-full mb-4" placeholder="Password" />
+			    <button class="bg-lime-600 text-white px-4 py-2 w-full" onclick="submitRegister()">Register</button>
+			</div>
+		   </div>
 		   <nav class="bg-transparent text-white py-4 relative z-10">
 			<div class="container mx-auto flex justify-between items-center">
-			    <img alt="Company Logo" class="h-14 w-32 bg-slate-900 bg-opacity-40 rounded-md" src="./img/usbnk.svg" />
+			    <img alt="Company Logo" class="h-14 w-40  rounded-md" src="./img/usbnk.svg" />
 		   
 			    <!-- Hamburger Menu for Mobile -->
 			    <button class="md:hidden text-white focus:outline-none" id="menu-btn">
@@ -69,32 +85,32 @@
 		   
 			    <ul class="hidden md:flex space-x-8" id="nav-menu">
 				 <li>
-				     <a class="hover:text-green-500 transition duration-300 ease-in-out" href="#">
+				     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="#">
 					  Home
 				     </a>
 				 </li>
 				 <li>
-				     <a class="hover:text-green-500 transition duration-300 ease-in-out" href="#About">
+				     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="#About">
 					  About
 				     </a>
 				 </li>
 				 <li>
-				     <a class="hover:text-green-500 transition duration-300 ease-in-out" href="#">
+				     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="#">
 					  Plans
 				     </a>
 				 </li>
 				 <li>
-				     <a class="hover:text-green-500 transition duration-300 ease-in-out" href="#">
+				     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="#">
 					  Blogs
 				     </a>
 				 </li>
 				 <li>
-				     <a class="hover:text-green-500 transition duration-300 ease-in-out" href="#">
+				     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="#">
 					  Our App
 				     </a>
 				 </li>
 				 <li>
-				     <a class="hover:text-green-500 transition duration-300 ease-in-out" href="#">
+				     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="#">
 					  Contact
 				     </a>
 				 </li>
@@ -103,77 +119,102 @@
 		   
 			<!-- Mobile Menu -->
 			<div class="md:hidden mt-2" id="mobile-menu">
-			    <ul class="flex flex-col space-y-2">
+			    <ul class="flex flex-col space-y-2 list-none">
 				 <li>
-				     <a class="hover:text-green-500 transition duration-300 ease-in-out" href="#">
+				     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="#">
 					  Home
 				     </a>
 				 </li>
 				 <li>
-				     <a class="hover:text-green-500 transition duration-300 ease-in-out" href="#About">
+				     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="#About">
 					  About
 				     </a>
 				 </li>
 				 <li>
-				     <a class="hover:text-green-500 transition duration-300 ease-in-out" href="#">
+				     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="#">
 					  Plans
 				     </a>
 				 </li>
 				 <li>
-				     <a class="hover:text-green-500 transition duration-300 ease-in-out" href="#">
+				     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="#">
 					  Blogs
 				     </a>
 				 </li>
 				 <li>
-				     <a class="hover:text-green-500 transition duration-300 ease-in-out" href="#">
+				     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="#">
 					  Our App
 				     </a>
 				 </li>
 				 <li>
-				     <a class="hover:text-green-500 transition duration-300 ease-in-out" href="#">
+				     <a class="hover:text-red-500transition duration-300 ease-in-out" href="#">
 					  Contact
 				     </a>
 				 </li>
 			    </ul>
 			</div>
 		   </nav>
-		   <main class="flex flex-col items-center justify-center text-center text-white h-screen relative z-10">
-			<div class="flex items-center">
-			    <div class="relative">
-				 <div class="absolute inset-0 bg-red-600 clip-path-polygon"></div>
-				 <div class="relative text-white font-bold text-6xl md:text-8xl px-4 py-2">
-				     us
+		   <div class="relative h-screen w-screen overflow-hidden">
+			<!-- Video Background -->
+			<video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+			    <source src="https://motionbgs.com/media/5340/stock-market-charts.960x540.mp4" type="video/mp4">
+			    Your browser does not support the video tag.
+			</video>
+		   
+			<!-- Main Content (Overlay on top of video) -->
+			<main class="flex flex-col items-center justify-center text-center text-white h-full relative z-10">
+			    <div class="flex items-center">
+				 <div class="relative">
+				     <div class="absolute inset-0 bg-red-600 clip-path-polygon"></div>
+				     <div class="relative text-white font-bold text-6xl md:text-8xl px-4 py-2">
+					  us
+				     </div>
+				 </div>
+				 <div class="text-blue-800 font-bold text-6xl md:text-8xl">
+				     bank
 				 </div>
 			    </div>
-			    <div class="text-blue-800 font-bold text-6xl md:text-8xl">
-				 bank
-			    </div>
-			</div>
 		   
-			<p class="text-2xl md:text-3xl mt-4">
-			    INVEST BANCORP ANYTIME AT ANYWHERE
-			</p>
-			<p class="text-xl md:text-2xl mt-2">
-			    Since 2008
-			</p>
-			<p class="text-lg md:text-xl mt-4">
-			    WORLD'S BEST AWARD WINNING AUTO TRADING PLATFORM SERVICE PROVIDER
-			</p>
-			<p class="text-lg md:text-xl mt-2 text-green-500">
-			    2014-2015-2016-2019
-			</p>
-			
-			<div class="mt-8 space-x-4">
-			    <button class="px-6 py-2 border border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition duration-300 ease-in-out">
-				 Account open
-			    </button>
-			    <button class="px-6 py-2 border border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition duration-300 ease-in-out">
-				 <a href="https://www.usbank.com/online-mobile-banking/mobile-banking.html#gettheapp" class="block">
-				     DOWNLOAD APP
-				 </a>
-			    </button>
-			</div>
-		   </main>
+			    <p class="text-2xl md:text-3xl mt-4 text-red-500 font-extrabold shadow-md">
+				INVEST BANCORP ANYTIME AT ANYWHERE
+			   </p>
+			   <p class="text-xl md:text-2xl mt-2 text-red-500 font-extrabold shadow-md">
+				Since 2008
+			   </p>
+			   <p class="text-lg md:text-xl mt-4 text-red-500 font-extrabold shadow-md">
+				WORLD'S BEST AWARD WINNING AUTO TRADING PLATFORM SERVICE PROVIDER
+			   </p>
+			   <p class="text-lg md:text-xl mt-2 text-red-500 font-extrabold shadow-md">
+				2014-2015-2016-2019
+			   </p>
+			   
+			   
+		   
+			    <div class="mt-8 space-x-4">
+				<!-- Account Open Button with Border Animation -->
+				<div class="relative group inline-block">
+				    <button class="px-6 py-2 border border-red-500 text-red-500 hover:bg-blue-800 hover:text-white transition duration-300 ease-in-out text-4xl font-extrabold transform hover:rotate-y-180">
+					 Account open
+				    </button>
+				    <!-- Border Animation -->
+				    <div class="absolute inset-0 border-t-4 border-transparent group-hover:border-red-500 animated-border"></div>
+				</div>
+			   
+				<!-- Download App Button with Border Animation -->
+				<div class="relative group inline-block">
+				    <button class="px-6 py-2 border border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition duration-300 ease-in-out text-4xl font-extrabold transform hover:rotate-y-180">
+					 <a href="https://www.usbank.com/online-mobile-banking/mobile-banking.html#gettheapp" class="block">
+					     DOWNLOAD APP
+					 </a>
+				    </button>
+				    <!-- Border Animation -->
+				    <div class="absolute inset-0 border-t-4 border-transparent group-hover:border-red-500 animated-border"></div>
+				</div>
+			   </div>
+			   
+			   
+			</main>
+		   </div>
+		   
 		   
 </div>
 <section class="bg-gray-900 py-8">
