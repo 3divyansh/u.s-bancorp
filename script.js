@@ -405,3 +405,47 @@ function showForm(formType) {
 	    }, 3000);
 	}
    }
+
+
+
+
+   document.addEventListener("DOMContentLoaded", function () {
+	const investButtons = document.querySelectorAll("button");
+     
+	investButtons.forEach(button => {
+	  button.addEventListener("click", function () {
+	    // Displaying the message in the console
+	    console.log("Not a licensed investment. You cannot invest.");
+     
+	    // Creating a toast message
+	    const toast = document.createElement("div");
+	    toast.textContent = "Not a licensed investment. You cannot invest.";
+	    toast.style.position = "fixed";
+	    toast.style.top = "1rem";
+	    toast.style.left = "50%";
+	    toast.style.transform = "translateX(-50%)";
+	    toast.style.backgroundColor = "#ff4444";
+	    toast.style.color = "white";
+	    toast.style.padding = "1rem 2rem";
+	    toast.style.borderRadius = "8px";
+	    toast.style.boxShadow = "0px 4px 6px rgba(0, 0, 0, 0.1)";
+	    toast.style.zIndex = "9999";
+	    document.body.appendChild(toast);
+     
+	    // Removing the toast after 3 seconds
+	    setTimeout(() => {
+	      toast.remove();
+	    }, 3000);
+	  });
+	});
+     });
+
+
+
+
+
+
+
+
+
+     
