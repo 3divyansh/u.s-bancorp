@@ -73,88 +73,92 @@
 				    <button class="bg-blue-600 text-white px-4 py-2 w-full" onclick="submitRegister()">Register</button>
 				</div>
 			   </div>
-		   <nav class="bg-transparent text-white py-4 relative z-10">
-			<div class="container mx-auto flex justify-between items-center">
-			    <img alt="Company Logo" class="h-14 w-40  rounded-md" src="./img/usbnk.svg" />
-		   
-			    <!-- Hamburger Menu for Mobile -->
-			    <button class="md:hidden text-white focus:outline-none" id="menu-btn">
-				 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-				     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-				 </svg>
-			    </button>
-		   
-			    <ul class="hidden md:flex space-x-8" id="nav-menu">
-				 <li>
-				     <a class="hover:text-green-500 transition duration-300 ease-in-out" href="#">
-					  Home
-				     </a>
-				 </li>
-				 <li>
-				     <a class="hover:text-green-500 transition duration-300 ease-in-out" href="#About">
-					  About
-				     </a>
-				 </li>
-				 <li>
-				     <a class="hover:text-green-500 transition duration-300 ease-in-out" href="plan.html">
-					  Plans
-				     </a>
-				 </li>
-				 <li>
-				     <a class="hover:text-green-500 transition duration-300 ease-in-out" href="blog.html">
-					  Blogs
-				     </a>
-				 </li>
-				 <li>
-					<a class="hover:text-green-500 transition duration-300 ease-in-out" href="contact.html">
-					    Contact
-					</a>
-				   </li>
-				 <li>
-				     <a class="hover:text-greeen-500 transition duration-300 ease-in-out" href="apps.html">
-					  Our App
-				     </a>
-				 </li>
-				
-			    </ul>
-			</div>
-		   
-			<!-- Mobile Menu -->
-			<div class="md:hidden mt-2" id="mobile-menu">
-			    <ul class="flex flex-col space-y-2 list-non">
-				 <li>
-				     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="#">
-					  Home
-				     </a>
-				 </li>
-				 <li>
-				     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="#About">
-					  About
-				     </a>
-				 </li>
-				 <li>
-				     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="plan.html">
-					  Plans
-				     </a>
-				 </li>
-				 <li>
-				     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="blog.html">
-					  Blogs
-				     </a>
-				 </li>
-				 <li>
-				     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="apps.html">
-					  Our App
-				     </a>
-				 </li>
-				 <li>
-				     <a class="hover:text-red-500transition duration-300 ease-in-out" href="contact.html">
-					  Contact
-				     </a>
-				 </li>
-			    </ul>
-			</div>
-		   </nav>
+			   
+				<div class="container mx-auto flex justify-between items-center">
+				    <img alt="Company Logo" class="h-14 w-40 rounded-md" src="./img/usbnk.svg" />
+			   
+				    <!-- Hamburger Menu for Mobile -->
+				    <button class="md:hidden text-white focus:outline-none" id="menu-btn">
+					 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+					     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+					 </svg>
+				    </button>
+			   
+				    <nav id="navbar">
+					 <ul class="hidden md:flex space-x-8" id="nav-menu">
+					     <li>
+						  <a class="hover:text-green-500 transition duration-300 ease-in-out" href="#">
+						      Home
+						  </a>
+					     </li>
+					     <li>
+						  <a class="hover:text-green-500 transition duration-300 ease-in-out" href="#About">
+						      About
+						  </a>
+					     </li>
+					     <li>
+						  <a class="hover:text-green-500 transition duration-300 ease-in-out" href="plan.html">
+						      Plans
+						  </a>
+					     </li>
+					     <li>
+						  <a class="hover:text-green-500 transition duration-300 ease-in-out" href="blog.html">
+						      Blogs
+						  </a>
+					     </li>
+					     <li>
+						  <a class="hover:text-green-500 transition duration-300 ease-in-out" href="contact.html">
+						      Contact
+						  </a>
+					     </li>
+					     <li>
+						  <a class="hover:text-green-500 transition duration-300 ease-in-out" href="apps.html">
+						      Our App
+						  </a>
+					     </li>
+					 </ul>
+				    </nav>
+
+				    
+				</div>
+			   
+				<!-- Mobile Menu -->
+				<div class="md:hidden mt-2" id="mobile-menu">
+				    <ul class="flex flex-col space-y-2 list-none">
+					 <li>
+					     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="#">
+						  Home
+					     </a>
+					 </li>
+					 <li>
+					     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="#About">
+						  About
+					     </a>
+					 </li>
+					 <li>
+					     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="plan.html">
+						  Plans
+					     </a>
+					 </li>
+					 <li>
+					     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="blog.html">
+						  Blogs
+					     </a>
+					 </li>
+					 <li>
+					     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="apps.html">
+						  Our App
+					     </a>
+					 </li>
+					 <li>
+					     <a class="hover:text-red-500 transition duration-300 ease-in-out" href="contact.html">
+						  Contact
+					     </a>
+					 </li>
+				    </ul>
+				</div>
+			 
+			   
 		   <div class="relative h-screen w-screen overflow-hidden">
 			<div class="background"></div>
 		      
